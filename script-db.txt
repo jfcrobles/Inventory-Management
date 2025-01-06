@@ -1,0 +1,91 @@
+-- Crear la base de datos
+CREATE DATABASE Inventory_management;
+
+-- Conectar a la base de datos 'Inventory_management'
+\c Inventory_management;
+
+-- Crear la tabla de productos (Products)
+CREATE TABLE Products (
+    ID SERIAL PRIMARY KEY,
+    Name VARCHAR(255) NOT NULL,
+    Description TEXT,
+    Category VARCHAR(100),
+    Price DECIMAL(10, 2) NOT NULL CHECK (Price >= 0),
+    SKU VARCHAR(100) UNIQUE NOT NULL
+);
+
+-- Crear la tabla de tiendas (Store)
+CREATE TABLE Store (
+    ID SERIAL PRIMARY KEY,
+    Name VARCHAR(255) NOT NULL,
+    Location VARCHAR(255),
+    ManagerName VARCHAR(255)
+);
+
+-- Insertar datos de ejemplo en la tabla Store
+INSERT INTO Store (Name, Location, ManagerName)
+VALUES
+    ('Store001', 'New York, NY', 'Alice Johnson'),
+    ('Store002', 'Los Angeles, CA', 'Bob Smith'),
+    ('Store003', 'Chicago, IL', 'Charlie Brown');
+
+-- Crear la tabla de inventario (Inventory)
+CREATE TABLE Inventory (
+    ID SERIAL PRIMARY KEY,
+    ProductID INT NOT NULL REFERENCES Products(ID) ON DELETE CASCADE,
+    StoreID INT NOT NULL,
+    Qty INT NOT NULL CHECK (Qty >= 0),
+    MinStock INT NOT NULL CHECK (MinStock >= 0),
+    UNIQUE (ProductID, StoreID)
+);
+
+-- Crear la tabla de movimientos (Movements)
+CREATE TABLE Movements (
+    ID SERIAL PRIMARY KEY,
+    ProductID INT NOT NULL REFERENCES Products(ID) ON DELETE CASCADE,
+    SourceStoreID INT,
+    TargetStoreID INT,
+    Qty INT NOT NULL CHECK (Qty > 0),
+    timestamp TIMESTAMP DEFAULT CURRENT_TIMESTAMP NOT NULL,
+    type VARCHAR(10) NOT NULL CHECK (type IN ('IN', 'OUT', 'TRANSFER'))
+);
+
+-- Modificar la tabla de inventario para agregar la relación con Store
+ALTER TABLE Inventory
+    ADD CONSTRAINT fk_Inventory_Store FOREIGN KEY (StoreID) REFERENCES Store(ID) ON DELETE CASCADE;
+
+-- Modificar la tabla de movimientos para agregar las relaciones con Store
+ALTER TABLE Movements
+    ADD CONSTRAINT fk_Movements_source_Store FOREIGN KEY (SourceStoreID) REFERENCES Store(ID) ON DELETE SET NULL,
+    ADD CONSTRAINT fk_Movements_target_Store FOREIGN KEY (TargetStoreID) REFERENCES Store(ID) ON DELETE SET NULL;
+
+-- Insertar datos de ejemplo en la tabla Products
+INSERT INTO Products (Name, Description, Category, Price, SKU)
+VALUES
+    ('Laptop', '15-inch laptop', 'Electronics', 1200.00, 'SKU001'),
+    ('Smartphone', 'Latest model smartphone', 'Electronics', 800.00, 'SKU002'),
+    ('Headphones', 'Noise-cancelling headphones', 'Accessories', 200.00, 'SKU003');
+
+-- Insertar datos de ejemplo en la tabla Inventory
+INSERT INTO Inventory (ProductID, StoreID, Qty, MinStock)
+VALUES
+    (1, 1, 10, 2),
+    (2, 1, 5, 1),
+    (3, 2, 15, 3);
+
+-- Insertar datos de ejemplo en la tabla Movements
+INSERT INTO Movements (ProductID, SourceStoreID, TargetStoreID, Qty, type)
+VALUES
+    (1, NULL, 1, 10, 'IN'),
+    (2, 1, 2, 3, 'TRANSFER');
+
+-- Crear índices para optimizar consultas frecuentes
+CREATE INDEX IDx_Products_Category ON Products(Category);
+CREATE INDEX IDx_Inventory_StoreID ON Inventory(StoreID);
+CREATE INDEX IDx_Movements_timestamp ON Movements(timestamp);
+
+-- Verificar las tablas creadas (opcional)
+-- SELECT * FROM Store;
+-- SELECT * FROM Products;
+-- SELECT * FROM Inventory;
+-- SELECT * FROM Movements;

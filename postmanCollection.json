@@ -1,0 +1,220 @@
+{
+    "info": {
+      "_postman_id": "12345678-1234-1234-1234-123456789abc",
+      "name": "Inventory Management API",
+      "description": "Colección para interactuar con la API de gestión de inventarios.",
+      "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+    },
+    "item": [
+      {
+        "name": "Get All Products",
+        "request": {
+          "method": "GET",
+          "header": [],
+          "url": {
+            "raw": "http://localhost:8080/api/products",
+            "protocol": "http",
+            "host": [
+              "localhost"
+            ],
+            "port": "8080",
+            "path": [
+              "api",
+              "products"
+            ]
+          }
+        },
+        "response": []
+      },
+      {
+        "name": "Get Product by ID",
+        "request": {
+          "method": "GET",
+          "header": [],
+          "url": {
+            "raw": "http://localhost:8080/api/products/1",
+            "protocol": "http",
+            "host": [
+              "localhost"
+            ],
+            "port": "8080",
+            "path": [
+              "api",
+              "products",
+              "1"
+            ]
+          }
+        },
+        "response": []
+      },
+      {
+        "name": "Create Product",
+        "request": {
+          "method": "POST",
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "body": {
+            "mode": "raw",
+            "raw": "{\"name\": \"New Product\", \"price\": 29.99, \"stock\": 100, \"category\": \"Electronics\", \"description\": \"New description\", \"sku\": \"NewSKU\"}"
+          },
+          "url": {
+            "raw": "http://localhost:8080/api/products",
+            "protocol": "http",
+            "host": [
+              "localhost"
+            ],
+            "port": "8080",
+            "path": [
+              "api",
+              "products"
+            ]
+          }
+        },
+        "response": []
+      },
+      {
+        "name": "Update Product",
+        "request": {
+          "method": "PUT",
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "body": {
+            "mode": "raw",
+            "raw": "{\"name\": \"Updated Product\", \"price\": 19.99, \"stock\": 150, \"category\": \"Home Goods\", \"description\": \"Updated description\", \"sku\": \"UpdatedSKU\"}"
+          },
+          "url": {
+            "raw": "http://localhost:8080/api/products/1",
+            "protocol": "http",
+            "host": [
+              "localhost"
+            ],
+            "port": "8080",
+            "path": [
+              "api",
+              "products",
+              "1"
+            ]
+          }
+        },
+        "response": []
+      },
+      {
+        "name": "Delete Product",
+        "request": {
+          "method": "DELETE",
+          "header": [],
+          "url": {
+            "raw": "http://localhost:8080/api/products/1",
+            "protocol": "http",
+            "host": [
+              "localhost"
+            ],
+            "port": "8080",
+            "path": [
+              "api",
+              "products",
+              "1"
+            ]
+          }
+        },
+        "response": []
+      },
+      {
+        "name": "Get Inventory by Store",
+        "request": {
+          "method": "GET",
+          "header": [],
+          "url": {
+            "raw": "http://localhost:8080/api/stores/1/inventory",
+            "protocol": "http",
+            "host": [
+              "localhost"
+            ],
+            "port": "8080",
+            "path": [
+              "api",
+              "stores",
+              "1",
+              "inventory"
+            ]
+          }
+        },
+        "response": []
+      },
+      {
+        "name": "Update Min Stock",
+        "request": {
+          "method": "PUT",
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "body": {
+            "mode": "raw",
+            "raw": "50"
+          },
+          "url": {
+            "raw": "http://localhost:8080/api/inventory/{storeId}/{productId}/minstock",
+            "protocol": "http",
+            "host": [
+              "localhost"
+            ],
+            "port": "8080",
+            "path": [
+              "api",
+              "stores",
+              "{storeId}",
+              "inventory",
+              "{productId}",
+              "minstock"
+            ],
+            "variable": [
+              {
+                "key": "storeId",
+                "value": "1",
+                "description": "Reemplazar con el ID de la tienda"
+              },
+              {
+                "key": "productId",
+                "value": "1",
+                "description": "Reemplazar con el ID del producto"
+              }
+            ]
+          }
+        },
+        "response": []
+      },
+      {
+        "name": "Get Low Stock Alerts",
+        "request": {
+          "method": "GET",
+          "header": [],
+          "url": {
+            "raw": "http://localhost:8080/api/inventory/alerts",
+            "protocol": "http",
+            "host": [
+              "localhost"
+            ],
+            "port": "8080",
+            "path": [
+              "api",
+              "inventory",
+              "alerts"
+            ]
+          }
+        },
+        "response": []
+      }
+    ]
+  }
+  
