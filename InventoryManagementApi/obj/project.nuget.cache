@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "Z04B0I5DQxc=",
+  "dgSpecHash": "RCPrA18qhqo=",
   "success": true,
-  "projectFilePath": "D:\\Francisco\\Documents\\GitHub\\inventroy-managment\\InventoryManagementApi\\InventoryManagementApi.csproj",
+  "projectFilePath": "D:\\Francisco\\Documents\\GitHub\\Inventory-Management\\InventoryManagementApi\\InventoryManagementApi.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Francisco Robles\\.nuget\\packages\\humanizer.core\\2.14.1\\humanizer.core.2.14.1.nupkg.sha512",
     "C:\\Users\\Francisco Robles\\.nuget\\packages\\microsoft.aspnetcore.openapi\\8.0.10\\microsoft.aspnetcore.openapi.8.0.10.nupkg.sha512",

@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "D:\\Francisco\\Documents\\GitHub\\inventroy-managment\\InventoryManagementApi\\InventoryManagementApi.csproj": {}
+    "D:\\Francisco\\Documents\\GitHub\\Inventory-Management\\InventoryManagementApi\\InventoryManagementApi.csproj": {}
   },
   "projects": {
-    "D:\\Francisco\\Documents\\GitHub\\inventroy-managment\\InventoryManagementApi\\InventoryManagementApi.csproj": {
+    "D:\\Francisco\\Documents\\GitHub\\Inventory-Management\\InventoryManagementApi\\InventoryManagementApi.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Francisco\\Documents\\GitHub\\inventroy-managment\\InventoryManagementApi\\InventoryManagementApi.csproj",
+        "projectUniqueName": "D:\\Francisco\\Documents\\GitHub\\Inventory-Management\\InventoryManagementApi\\InventoryManagementApi.csproj",
         "projectName": "InventoryManagementApi",
-        "projectPath": "D:\\Francisco\\Documents\\GitHub\\inventroy-managment\\InventoryManagementApi\\InventoryManagementApi.csproj",
+        "projectPath": "D:\\Francisco\\Documents\\GitHub\\Inventory-Management\\InventoryManagementApi\\InventoryManagementApi.csproj",
         "packagesPath": "C:\\Users\\Francisco Robles\\.nuget\\packages\\",
-        "outputPath": "D:\\Francisco\\Documents\\GitHub\\inventroy-managment\\InventoryManagementApi\\obj\\",
+        "outputPath": "D:\\Francisco\\Documents\\GitHub\\Inventory-Management\\InventoryManagementApi\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Francisco Robles\\AppData\\Roaming\\NuGet\\NuGet.Config",
