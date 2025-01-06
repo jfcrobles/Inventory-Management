@@ -23,7 +23,7 @@ The Inventory Management API is a RESTful service designed to manage inventory, 
 
 #### 1. Clone the Repository
 ```bash
-git clone <repository-url>
+git clone https://github.com/jfcrobles/Inventory-Management.git
 cd inventory-management-api
 ```
 
